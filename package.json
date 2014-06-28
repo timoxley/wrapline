@@ -1,0 +1,22 @@
+{
+  "name": "indent-stream",
+  "version": "1.0.0",
+  "description": "Indent each line of a stream",
+  "main": "index.js",
+  "scripts": {
+    "test": "tape test/*js"
+  },
+  "author": "Tim Oxley",
+  "license": "MIT",
+  "devDependencies": {
+    "tape": "^2.13.2"
+  },
+  "dependencies": {
+    "multipipe": "^0.1.1",
+    "split2": "^0.1.1",
+    "through2": "^0.5.1"
+  },
+  "directories": {
+    "test": "test"
+  }
+}
