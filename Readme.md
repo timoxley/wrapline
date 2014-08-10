@@ -59,7 +59,7 @@ var stream = WrapLine()
 fs.createReadStream('before.txt')
 .pipe(WrapLine(' '))
 .pipe(WrapLine(function(pre, line) {
-  pre = pre || -1
+  pre = pre || 0
   return pre + 1
 }))
 .pipe(fs.createWriteStream('after.txt'))
