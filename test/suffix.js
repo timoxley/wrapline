@@ -5,11 +5,11 @@ var wrapline = require('../')
 
 var fs = require('fs')
 
-test('adds indent to each line of a stream', function(t) {
-  var expected = fs.readFileSync(__dirname + '/indent-expected.txt', 'utf8')
+test('adds suffix to each line of a stream', function(t) {
+  var expected = fs.readFileSync(__dirname + '/suffix-expected.txt', 'utf8')
   var actual = ''
   fs.createReadStream(__dirname + '/indent.txt')
-  .pipe(wrapline('  '))
+  .pipe(wrapline('<','>'))
   .on('data', function(data) {
     actual += data
   })

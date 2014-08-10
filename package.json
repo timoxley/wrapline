@@ -1,22 +1,37 @@
 {
-  "name": "indent-stream",
-  "version": "1.0.0",
-  "description": "Indent each line of a stream",
+  "name": "wrapline",
+  "version": "2.0.0",
+  "description": "Add prefix/suffix to lines of a text stream.",
   "main": "index.js",
   "scripts": {
     "test": "tape test/*js"
   },
   "author": "Tim Oxley",
   "license": "MIT",
+  "keywords": [
+    "indent",
+    "stream",
+    "prefix",
+    "suffix"
+  ],
   "devDependencies": {
     "tape": "^2.13.2"
   },
   "dependencies": {
+    "duplexer2": "~0.0.2",
     "multipipe": "^0.1.1",
-    "split2": "^0.1.1",
+    "split2": "^0.1.2",
     "through2": "^0.5.1"
   },
   "directories": {
     "test": "test"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/timoxley/wrapline.git"
+  },
+  "bugs": {
+    "url": "https://github.com/timoxley/wrapline/issues"
+  },
+  "homepage": "https://github.com/timoxley/wrapline"
 }

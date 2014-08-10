@@ -1,18 +1,30 @@
 "use strict"
 
 var through = require('through2')
-var pipe = require('multipipe')
+var duplex = require('duplexer2')
 var split = require('split2')
 
-module.exports = function(indent) {
-  var context = pipe(
-    split(),
-    through(function(data, enc, cb) {
-      // add newline that split() removed
-      this.push(context.indent + data + '\n')
-      cb()
-    })
-  )
-  context.indent = indent
-  return context
+module.exports = function wrapLine(prefix, suffix) {
+  var pre = ''
+  var post = ''
+  var input = split()
+  var output = through(function(data, enc, cb) {
+
+    pre = (typeof prefix === 'function')
+    ? prefix(pre, data)
+    : prefix
+
+    post = (typeof suffix === 'function')
+    ? suffix(post, data)
+    : suffix
+
+    if (pre == null) pre = ''
+    if (post == null) post = ''
+
+    this.push(pre + data + post + '\n')
+    cb()
+  })
+
+  input.pipe(output)
+  return duplex(input, output)
 }
