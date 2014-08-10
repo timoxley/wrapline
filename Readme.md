@@ -18,7 +18,7 @@ fs.createReadStream('before.txt')
 .pipe(fs.createWriteStream('after.txt'))
 ```
 
-#### before.txt
+before.txt
 ```
 Lorem ipsum dolor sit amet, quo ad quis latine.
 Erant scribentur ne ius.
@@ -27,7 +27,7 @@ No iriure mentitum platonem usu, te nec ocurreret instructior.
 Vim quem quis at.
 ```
 
-#### after.txt
+after.txt
 ```
   Lorem ipsum dolor sit amet, quo ad quis latine.
   Erant scribentur ne ius.
@@ -45,7 +45,7 @@ fs.createReadStream('before.txt')
 .pipe(WrapLine('<', '>')) // indent entire stream with 2 spaces
 .pipe(fs.createWriteStream('after.txt'))
 ```
-#### after.txt
+after.txt
 ```
 <Lorem ipsum dolor sit amet, quo ad quis latine.>
 <Erant scribentur ne ius.>
@@ -64,7 +64,7 @@ fs.createReadStream('before.txt')
 }))
 .pipe(fs.createWriteStream('after.txt'))
 ```
-#### after.txt
+after.txt
 ```
 1 Lorem ipsum dolor sit amet, quo ad quis latine.
 2 Erant scribentur ne ius.
