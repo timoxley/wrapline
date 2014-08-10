@@ -8,7 +8,7 @@ streams.
 
 ## Examples
 
-### Indent a stream
+### Indent each line of a stream
 
 ```js
 var WrapLine = require('wrapline')
@@ -17,8 +17,7 @@ fs.createReadStream('before.txt')
 .pipe(WrapLine('  ')) // indent entire stream with 2 spaces
 .pipe(fs.createWriteStream('after.txt'))
 ```
-
-before.txt
+Input:
 ```
 Lorem ipsum dolor sit amet, quo ad quis latine.
 Erant scribentur ne ius.
@@ -27,7 +26,7 @@ No iriure mentitum platonem usu, te nec ocurreret instructior.
 Vim quem quis at.
 ```
 
-after.txt
+Output:
 ```
   Lorem ipsum dolor sit amet, quo ad quis latine.
   Erant scribentur ne ius.
@@ -36,35 +35,38 @@ after.txt
   Vim quem quis at.
 ```
 
-### Add prefix and suffix to each line
+### Add prefix/suffix to each line
 
 ```js
 var WrapLine = require('wrapline')
 var stream = WrapLine()
 fs.createReadStream('before.txt')
-.pipe(WrapLine('<', '>')) // indent entire stream with 2 spaces
+.pipe(WrapLine('<', '>')) // <surround line contents>
 .pipe(fs.createWriteStream('after.txt'))
 ```
-after.txt
+
 ```
 <Lorem ipsum dolor sit amet, quo ad quis latine.>
 <Erant scribentur ne ius.>
 ```
 
-### Dynamically add prefix/suffix to line
+### Dynamically add prefix/suffix to each line
+
+e.g. Adding line numbers
 
 ```js
 var WrapLine = require('wrapline')
 var stream = WrapLine()
 fs.createReadStream('before.txt')
-.pipe(WrapLine(' '))
+.pipe(WrapLine(' ')) // add space
 .pipe(WrapLine(function(pre, line) {
+  // add 'line numbers' to each line
   pre = pre || 0
   return pre + 1
 }))
 .pipe(fs.createWriteStream('after.txt'))
 ```
-after.txt
+
 ```
 1 Lorem ipsum dolor sit amet, quo ad quis latine.
 2 Erant scribentur ne ius.
