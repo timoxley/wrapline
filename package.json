@@ -19,7 +19,6 @@
   },
   "dependencies": {
     "duplexer2": "~0.0.2",
-    "multipipe": "^0.1.1",
     "split2": "^0.1.2",
     "through2": "^0.5.1"
   },
