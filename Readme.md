@@ -1,5 +1,7 @@
 # wrapline
 
+[![Build Status](https://travis-ci.org/timoxley/wrapline.svg?branch=master)](https://travis-ci.org/timoxley/wrapline)
+
 Add a prefix and/or suffix each line of a text stream.
 
 This package used to be named `indent-stream` until 2.0.0 when the
